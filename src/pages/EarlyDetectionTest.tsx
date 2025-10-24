@@ -9,6 +9,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { AlertCircle, CheckCircle2 } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 import {
   Form,
   FormControl,
@@ -84,6 +85,7 @@ const formSchema = z.object({
 
 export default function EarlyDetectionTest() {
   const navigate = useNavigate();
+  const { t } = useLanguage();
   const [showResults, setShowResults] = useState(false);
   const [totalScore, setTotalScore] = useState(0);
 
@@ -141,9 +143,9 @@ export default function EarlyDetectionTest() {
     }));
     
     if (score >= 6) {
-      toast.warning("يُنصح بمراجعة طبيب أعصاب لإجراء فحوصات إضافية");
+      toast.warning(t('early.consultRecommended'));
     } else {
-      toast.success("تم حفظ النتائج بنجاح");
+      toast.success(t('early.resultsSaved'));
     }
   };
 
@@ -216,9 +218,9 @@ export default function EarlyDetectionTest() {
             WebkitTextFillColor: 'transparent',
             backgroundClip: 'text'
           }}>
-            استبيان التحليل المبكر
+            {t('early.title')}
           </h1>
-          <p className="text-muted-foreground">اجب على الأسئلة التالية بدقة للحصول على تقييم مبدئي</p>
+          <p className="text-muted-foreground">{t('early.subtitle')}</p>
         </div>
 
         {showResults && (
@@ -234,15 +236,15 @@ export default function EarlyDetectionTest() {
                 <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
               )}
               <div>
-                <h3 className="text-xl font-bold mb-2">النتيجة: {totalScore} نقطة</h3>
+                <h3 className="text-xl font-bold mb-2">{t('early.result')} {totalScore} {t('early.points')}</h3>
                 {totalScore >= 6 ? (
                   <p className="text-base">
-                    قد تكون لديك أعراض أولية مشابهة لمرض التصلّب المتعدد. 
-                    <strong> يُنصح بمراجعة طبيب أعصاب لإجراء فحوصات إضافية.</strong>
+                    {t('early.highRisk')}
+                    <strong> {t('early.consultDoctor')}</strong>
                   </p>
                 ) : (
                   <p className="text-base">
-                    الأعراض المذكورة ليست مؤشرًا قويًا للمرض، لكن يُنصح بمتابعة طبيب إذا تفاقمت الأعراض.
+                    {t('early.lowRisk')}
                   </p>
                 )}
               </div>
@@ -255,25 +257,25 @@ export default function EarlyDetectionTest() {
             {/* Section 1: Voice */}
             <div>
               <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
-             القسم 1: الصوت والنُطق
+                {t('early.section1')}
               </h2>
               <div className="space-y-4">
                 <QuestionItem
                   name="q1"
-                  label="هل لاحظت مؤخرًا إن صوتك اتغيّر؟"
+                  label={t('early.q1')}
                   subQuestions={[
-                    { name: "q1a", label: "هل بقى صوتك أهدى أو فيه بُحّة ملحوظة؟" },
-                    { name: "q1b", label: "هل بتحس إنك بتحتاج تبذل مجهود علشان تتكلم بصوت واضح؟" },
-                    { name: "q1c", label: "هل في لحظات بتحس إن نطق الحروف بيتغير أو مش مضبوط زي قبل؟" },
-                    { name: "q1d", label: "هل صوتك بيتغير حسب وقت اليوم (أسوأ الصبح أو بالليل)؟" },
+                    { name: "q1a", label: t('early.q1a') },
+                    { name: "q1b", label: t('early.q1b') },
+                    { name: "q1c", label: t('early.q1c') },
+                    { name: "q1d", label: t('early.q1d') },
                   ]}
                 />
                 <QuestionItem
                   name="q2"
-                  label="هل لاحظت إن نغمة صوتك أو طبقة الصوت بتتهزّ أو بتتغير بشكل غير طبيعي؟"
+                  label={t('early.q2')}
                   subQuestions={[
-                    { name: "q2a", label: "هل التغيّر ده مستمر ولا بيظهر بس لما تتعب؟" },
-                    { name: "q2b", label: "هل بيحصل كمان لما تتوتر أو تبذل مجهود؟" },
+                    { name: "q2a", label: t('early.q2a') },
+                    { name: "q2b", label: t('early.q2b') },
                   ]}
                 />
               </div>
@@ -282,32 +284,32 @@ export default function EarlyDetectionTest() {
             {/* Section 2: Movement */}
             <div>
               <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
-                 القسم 2: الحركة والإحساس
+                {t('early.section2')}
               </h2>
               <div className="space-y-4">
                 <QuestionItem
                   name="q3"
-                  label="هل بيجيلك وخز أو تنميل في إيدك أو رجلك؟"
+                  label={t('early.q3')}
                   subQuestions={[
-                    { name: "q3a", label: "هل التنميل بيستمر أكتر من 24 ساعة؟" },
-                    { name: "q3b", label: "هل بيتكرر في نفس المكان أو بيتنقل؟" },
-                    { name: "q3c", label: "هل بيزيد مع الحرارة أو التعب؟" },
+                    { name: "q3a", label: t('early.q3a') },
+                    { name: "q3b", label: t('early.q3b') },
+                    { name: "q3c", label: t('early.q3c') },
                   ]}
                 />
                 <QuestionItem
                   name="q4"
-                  label="هل بتحس بضعف مفاجئ أو مؤقت في ذراعك أو رجلك؟"
+                  label={t('early.q4')}
                   subQuestions={[
-                    { name: "q4a", label: "هل الضعف بيمنعك مؤقتًا من أداء مهام بسيطة؟" },
-                    { name: "q4b", label: "هل بتحس إن الإحساس بالعضلة بيرجع بعد وقت؟" },
+                    { name: "q4a", label: t('early.q4a') },
+                    { name: "q4b", label: t('early.q4b') },
                   ]}
                 />
                 <QuestionItem
                   name="q5"
-                  label="هل حصل إنك فقدت توازنك فجأة أو حسيت إن الأرض بتلف؟"
+                  label={t('early.q5')}
                   subQuestions={[
-                    { name: "q5a", label: "هل بتحصل النوبات دي أثناء المشي أو الوقوف فقط؟" },
-                    { name: "q5b", label: "هل بتحس إنك لازم تمسك حاجة علشان ما تقعش؟" },
+                    { name: "q5a", label: t('early.q5a') },
+                    { name: "q5b", label: t('early.q5b') },
                   ]}
                 />
               </div>
@@ -316,24 +318,24 @@ export default function EarlyDetectionTest() {
             {/* Section 3: Vision */}
             <div>
               <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
-                 القسم 3: الرؤية
+                {t('early.section3')}
               </h2>
               <div className="space-y-4">
                 <QuestionItem
                   name="q6"
-                  label="هل حصل إن نظرك ضعف فجأة أو شُفت ضباب قدام عينك؟"
+                  label={t('early.q6')}
                   subQuestions={[
-                    { name: "q6a", label: "هل في عين واحدة فقط؟" },
-                    { name: "q6b", label: "هل بتحس بألم في العين وقت الحركة؟" },
-                    { name: "q6c", label: "هل رجع نظرك طبيعي بعد أيام أو لسه متأثر؟" },
+                    { name: "q6a", label: t('early.q6a') },
+                    { name: "q6b", label: t('early.q6b') },
+                    { name: "q6c", label: t('early.q6c') },
                   ]}
                 />
                 <QuestionItem
                   name="q7"
-                  label="هل بتشوف ومضات أو بقع ضوء غريبة أحيانًا؟"
+                  label={t('early.q7')}
                   subQuestions={[
-                    { name: "q7a", label: "هل بتحصل مع إجهاد العين؟" },
-                    { name: "q7b", label: "هل بتيجي في نفس العين أو بتتنقل؟" },
+                    { name: "q7a", label: t('early.q7a') },
+                    { name: "q7b", label: t('early.q7b') },
                   ]}
                 />
               </div>
@@ -342,23 +344,23 @@ export default function EarlyDetectionTest() {
             {/* Section 4: Cognitive */}
             <div>
               <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
-                 القسم 4: التركيز والطاقة
+                {t('early.section4')}
               </h2>
               <div className="space-y-4">
                 <QuestionItem
                   name="q8"
-                  label="هل بتنسى حاجات بسيطة أكتر من الأول؟"
+                  label={t('early.q8')}
                   subQuestions={[
-                    { name: "q8a", label: "هل النسيان بيأثر على الشغل أو الدراسة؟" },
-                    { name: "q8b", label: "هل بيزيد مع التعب أو قلة النوم؟" },
+                    { name: "q8a", label: t('early.q8a') },
+                    { name: "q8b", label: t('early.q8b') },
                   ]}
                 />
                 <QuestionItem
                   name="q9"
-                  label="هل طاقتك اليومية قلت حتى لو بتنام كويس؟"
+                  label={t('early.q9')}
                   subQuestions={[
-                    { name: "q9a", label: "هل بتحس بإرهاق ذهني (مش بس تعب جسدي)؟" },
-                    { name: "q9b", label: "هل التعب بيزيد مع الجو الحار؟" },
+                    { name: "q9a", label: t('early.q9a') },
+                    { name: "q9b", label: t('early.q9b') },
                   ]}
                 />
               </div>
@@ -367,23 +369,23 @@ export default function EarlyDetectionTest() {
             {/* Section 5: Pain */}
             <div>
               <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
-                 القسم 5: الألم والتحكم في الجسم
+                {t('early.section5')}
               </h2>
               <div className="space-y-4">
                 <QuestionItem
                   name="q10"
-                  label="هل بتحس بألم غريب (زي لسعة كهربا أو حرقان) بدون سبب واضح؟"
+                  label={t('early.q10')}
                   subQuestions={[
-                    { name: "q10a", label: "هل الألم بيظهر في نفس المنطقة؟" },
-                    { name: "q10b", label: "هل بيزيد مع الحركة أو لمس الجلد؟" },
+                    { name: "q10a", label: t('early.q10a') },
+                    { name: "q10b", label: t('early.q10b') },
                   ]}
                 />
                 <QuestionItem
                   name="q11"
-                  label="هل بتواجه صعوبة في التحكم في البول أو بتحس بحاجة مفاجئة للتبول؟"
+                  label={t('early.q11')}
                   subQuestions={[
-                    { name: "q11a", label: "هل بتحصل بشكل متكرر؟" },
-                    { name: "q11b", label: "هل بتصاحبها تنميل أسفل الظهر أو البطن؟" },
+                    { name: "q11a", label: t('early.q11a') },
+                    { name: "q11b", label: t('early.q11b') },
                   ]}
                 />
               </div>
@@ -392,23 +394,23 @@ export default function EarlyDetectionTest() {
             {/* Section 6: Mood */}
             <div>
               <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
-                 القسم 6: المزاج والنوم
+                {t('early.section6')}
               </h2>
               <div className="space-y-4">
                 <QuestionItem
                   name="q12"
-                  label="هل مزاجك بيتغير بسرعة أو بتحس باكتئاب أو قلق مؤخرًا؟"
+                  label={t('early.q12')}
                   subQuestions={[
-                    { name: "q12a", label: "هل التغيرات دي بدأت مع الأعراض الجسدية؟" },
-                    { name: "q12b", label: "هل بتحس إن نومك اتأثر؟" },
+                    { name: "q12a", label: t('early.q12a') },
+                    { name: "q12b", label: t('early.q12b') },
                   ]}
                 />
                 <QuestionItem
                   name="q13"
-                  label="هل نومك بقى متقطع أو بتصحى أكتر من مرة في الليل بدون سبب؟"
+                  label={t('early.q13')}
                   subQuestions={[
-                    { name: "q13a", label: "هل السبب ألم أو تنميل أو تقلصات في الرجل؟" },
-                    { name: "q13b", label: "هل بتحس بتعب في اليوم التالي حتى لو نمت كفاية؟" },
+                    { name: "q13a", label: t('early.q13a') },
+                    { name: "q13b", label: t('early.q13b') },
                   ]}
                 />
               </div>
@@ -417,23 +419,23 @@ export default function EarlyDetectionTest() {
             {/* Section 7: History */}
             <div>
               <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
-                القسم 7: التاريخ المرضي والعائلة
+                {t('early.section7')}
               </h2>
               <div className="space-y-4">
                 <QuestionItem
                   name="q14"
-                  label="هل في حد من عيلتك مصاب بمرض التصلّب المتعدد أو أمراض مناعة؟"
+                  label={t('early.q14')}
                   subQuestions={[
-                    { name: "q14a", label: "قريب من الدرجة الأولى؟ (أب، أم، أخ، أخت)" },
-                    { name: "q14b", label: "هل عنده أعراض مشابهة لأعراضك؟" },
+                    { name: "q14a", label: t('early.q14a') },
+                    { name: "q14b", label: t('early.q14b') },
                   ]}
                 />
                 <QuestionItem
                   name="q15"
-                  label="هل سبق وعملت أشعة رنين على المخ أو النخاع الشوكي؟"
+                  label={t('early.q15')}
                   subQuestions={[
-                    { name: "q15a", label: "هل الطبيب قالك إن فيه التهابات أو بقع بيضاء في النخاع أو المخ؟" },
-                    { name: "q15b", label: "هل اتقالك إن الحالة ممكن تكون MS أو اشتباه؟" },
+                    { name: "q15a", label: t('early.q15a') },
+                    { name: "q15b", label: t('early.q15b') },
                   ]}
                 />
               </div>
@@ -446,7 +448,7 @@ export default function EarlyDetectionTest() {
                 onClick={() => navigate('/input')}
                 className="flex-1 text-lg py-6"
               >
-                رجوع
+                {t('input.back')}
               </Button>
               <Button
                 type="submit"
@@ -456,7 +458,7 @@ export default function EarlyDetectionTest() {
                   transition: 'var(--transition-smooth)'
                 }}
               >
-                حساب النتيجة
+                {t('early.submitForm')}
               </Button>
             </div>
           </form>
@@ -467,7 +469,7 @@ export default function EarlyDetectionTest() {
             <svg className="w-5 h-5 text-secondary" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
             </svg>
-            <p>هذا الاستبيان للتقييم المبدئي فقط وليس بديلاً عن الاستشارة الطبية</p>
+            <p>{t('disability.disclaimer')}</p>
           </div>
         </div>
       </Card>

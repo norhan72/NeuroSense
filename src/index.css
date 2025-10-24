@@ -79,6 +79,63 @@ All colors MUST be HSL.
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
+  .light {
+    --background: 0 0% 100%;
+    --background-secondary: 210 40% 98%;
+    --foreground: 220 15% 10%;
+    --foreground-secondary: 220 15% 30%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 15% 10%;
+    --card-border: 220 13% 91%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 15% 10%;
+
+    --primary: 211 100% 35%;
+    --primary-medium: 211 89% 41%;
+    --primary-light: 207 77% 62%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 185 100% 75%;
+    --secondary-foreground: 220 15% 10%;
+
+    --muted: 220 13% 91%;
+    --muted-foreground: 220 15% 30%;
+
+    --accent: 207 77% 62%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 96%;
+    --ring: 207 77% 62%;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 220 15% 10%;
+    --sidebar-primary: 211 89% 41%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 13% 91%;
+    --sidebar-accent-foreground: 220 15% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 207 77% 62%;
+
+    /* Medical AI theme properties for light mode */
+    --glass-bg: 0 0% 100%;
+    --glass-border: 207 77% 62%;
+    --neon-glow: 207 77% 62%;
+    --ai-particle: 185 100% 75%;
+    --button-primary: 211 89% 41%;
+    --button-primary-hover: 207 77% 62%;
+    --button-glass: 220 13% 96%;
+    --medical-green: 146 71% 58%;
+    --medical-red: 0 84% 60%;
+    --dna-helix: 185 100% 75%;
+    --neural-blue: 207 77% 62%;
+  }
+
   .dark {
     --background: 220 15% 5%;
     --background-secondary: 210 25% 8%;
@@ -158,6 +215,17 @@ All colors MUST be HSL.
     to { transform: rotate(360deg); }
   }
 
+  @keyframes neural-pulse {
+    0%, 100% { 
+      filter: brightness(1) contrast(1);
+      transform: scale(1);
+    }
+    50% { 
+      filter: brightness(1.2) contrast(1.1);
+      transform: scale(1.02);
+    }
+  }
+
   .animate-float {
     animation: float 6s ease-in-out infinite;
   }
@@ -168,5 +236,27 @@ All colors MUST be HSL.
 
   .animate-dna {
     animation: dna-rotate 20s linear infinite;
+  }
+
+  .animate-neural {
+    animation: neural-pulse 8s ease-in-out infinite;
+  }
+
+  /* Animated background */
+  .neural-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.3;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .light .neural-background {
+    opacity: 0.15;
   }
 }
