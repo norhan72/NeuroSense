@@ -3,12 +3,14 @@ import { Button } from '@/components/ui/button';
 import GlassCard from '@/components/GlassCard';
 import { Timer, Play, Pause, RotateCcw, Activity } from 'lucide-react';
 import { toast } from 'sonner';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface DisabilityTestScreenProps {
   onNavigate: (screen: string) => void;
 }
 
 const DisabilityTestScreen: React.FC<DisabilityTestScreenProps> = ({ onNavigate }) => {
+  const { t } = useLanguage();
   const [isRunning, setIsRunning] = useState(false);
   const [time, setTime] = useState(0);
   const [distance, setDistance] = useState(6);
@@ -195,13 +197,13 @@ const DisabilityTestScreen: React.FC<DisabilityTestScreenProps> = ({ onNavigate 
                 className="py-6"
               >
                 <RotateCcw className="w-5 h-5 ml-2" />
-                إعادة
+                {t('disability.reset')}
               </Button>
               <Button
                 onClick={() => onNavigate('results')}
                 className="bg-primary hover:bg-primary/90 text-primary-foreground py-6"
               >
-                عرض النتائج
+                {t('disability.viewResults')}
               </Button>
             </>
           )}

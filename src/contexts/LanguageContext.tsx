@@ -206,6 +206,15 @@ const translations = {
     'results.recommendation3': 'متابعة الأعراض وتسجيل أي تطورات',
     'results.newAnalysis': 'تحليل جديد',
     'results.home': 'الصفحة الرئيسية',
+    
+    // Navigation
+    'nav.home': 'الرئيسية',
+    'nav.input': 'الإدخال',
+    'nav.results': 'النتائج',
+    'nav.voice': 'الصوت',
+    'nav.disability': 'الإعاقة',
+    'nav.notFound': 'عذراً! الصفحة غير موجودة',
+    'nav.backToHome': 'العودة للصفحة الرئيسية',
   },
   en: {
     // Hero Page
@@ -402,6 +411,15 @@ const translations = {
     'results.recommendation3': 'Monitor symptoms and record any developments',
     'results.newAnalysis': 'New Analysis',
     'results.home': 'Home',
+    
+    // Navigation
+    'nav.home': 'Home',
+    'nav.input': 'Input',
+    'nav.results': 'Results',
+    'nav.voice': 'Voice',
+    'nav.disability': 'Disability',
+    'nav.notFound': 'Sorry! Page not found',
+    'nav.backToHome': 'Back to Home',
   }
 };
 

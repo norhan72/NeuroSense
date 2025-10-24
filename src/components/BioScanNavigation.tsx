@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Home, FileText, Mic, Activity, BarChart } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface BioScanNavigationProps {
   currentScreen: string;
@@ -8,12 +9,14 @@ interface BioScanNavigationProps {
 }
 
 const BioScanNavigation: React.FC<BioScanNavigationProps> = ({ currentScreen, onNavigate }) => {
+  const { t } = useLanguage();
+  
   const navItems = [
-    { screen: 'splash', label: 'الرئيسية', icon: Home },
-    { screen: 'input', label: 'الإدخال', icon: FileText },
-    { screen: 'voice', label: 'الصوت', icon: Mic },
-    { screen: 'disability', label: 'الإعاقة', icon: Activity },
-    { screen: 'results', label: 'النتائج', icon: BarChart },
+    { screen: 'splash', label: t('nav.home'), icon: Home },
+    { screen: 'input', label: t('nav.input'), icon: FileText },
+    { screen: 'voice', label: t('nav.voice'), icon: Mic },
+    { screen: 'disability', label: t('nav.disability'), icon: Activity },
+    { screen: 'results', label: t('nav.results'), icon: BarChart },
   ];
 
   if (currentScreen === 'splash') return null;
