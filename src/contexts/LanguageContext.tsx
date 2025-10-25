@@ -13,14 +13,14 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 const translations = {
   ar: {
     // Hero Page
-    'hero.title': 'BioScan',
+    'hero.title': 'NeuroSense',
     'hero.subtitle': '— AI —',
     'hero.arabicSubtitle': 'تحليل طبي متقدم',
-    'hero.welcome': 'مرحباً بك في BioScan AI',
+    'hero.welcome': 'مرحباً بك في NeuroSense AI',
     'hero.description': 'رفيقك المتقدم للتحليل الطبي بالذكاء الاصطناعي. مدعوم بأحدث تقنيات الذكاء الاصطناعي والخبرة الطبية.',
     'hero.systemsOnline': 'أنظمة الذكاء الاصطناعي متصلة',
     'hero.startAnalysis': 'ابدأ التحليل',
-    'hero.version': 'BioScan AI v2.1.0 • المحرك العصبي نشط',
+    'hero.version': 'NeuroSense AI v2.1.0 • المحرك العصبي نشط',
     
     // Input Form
     'input.title': 'إدخال بيانات المريض',
