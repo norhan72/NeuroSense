@@ -218,14 +218,14 @@ const translations = {
   },
   en: {
     // Hero Page
-    'hero.title': 'BioScan',
+    'hero.title': 'NeuroSense',
     'hero.subtitle': '— AI —',
     'hero.arabicSubtitle': 'Advanced Medical Analysis',
-    'hero.welcome': 'Welcome to BioScan AI',
+    'hero.welcome': 'Welcome to NeuroSense AI',
     'hero.description': 'Your advanced medical analysis companion powered by artificial intelligence. Backed by cutting-edge AI technology and medical expertise.',
     'hero.systemsOnline': 'AI Systems Online',
     'hero.startAnalysis': 'Start Analysis',
-    'hero.version': 'BioScan AI v2.1.0 • Neural Engine Active',
+    'hero.version': 'NeuroSense AI v2.1.0 • Neural Engine Active',
     
     // Input Form
     'input.title': 'Patient Data Input',
