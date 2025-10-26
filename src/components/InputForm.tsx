@@ -15,13 +15,13 @@ export const InputForm = () => {
   const { t } = useLanguage();
   const [patientName, setPatientName] = useState("");
   const [age, setAge] = useState("");
-  const [gender, setgender] = useState("");
+  const [symptoms, setSymptoms] = useState("");
   const [medicalHistory, setMedicalHistory] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!patientName || !age || !gender) {
+    if (!patientName || !age || !symptoms) {
       toast.error(t('input.errorRequired'));
       return;
     }
@@ -30,7 +30,7 @@ export const InputForm = () => {
     const analysisData = {
       patientName,
       age,
-      gender,
+      symptoms,
       medicalHistory,
       timestamp: new Date().toISOString()
     };
@@ -61,36 +61,17 @@ export const InputForm = () => {
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="space-y-2">
-             <Label className="text-lg font-semibold">{t('input.gender')}</Label>
-             <div className="flex gap-6">
-             <div className="flex items-center space-x-2 space-x-reverse">
-                <input
-                  type="radio"
-                  id="male"
-                  name="gender"
-                  value="male"
-                  checked={gender === "male"}
-                  onChange={(e) => setgender(e.target.value)}
-                  className="w-5 h-5 accent-blue-600 cursor-pointer"
-                  required
-                />
-                <Label htmlFor="male" className="cursor-pointer text-base">ذكر</Label>
-            </div>
-
-            <div className="flex items-center space-x-2 space-x-reverse">
-              <input
-                type="radio"
-                id="female"
-                name="gender"
-                value="female"
-                checked={gender === "female"}
-                onChange={(e) => setgender(e.target.value)}
-                className="w-5 h-5 accent-pink-600 cursor-pointer"
-              />
-              <Label htmlFor="female" className="cursor-pointer text-base">أنثى</Label>
-            </div>
+            <Label htmlFor="name" className="text-lg font-semibold">{t('input.patientName')}</Label>
+            <Input
+              id="name"
+              value={patientName}
+              onChange={(e) => setPatientName(e.target.value)}
+              placeholder={t('input.patientNamePlaceholder')}
+              className="text-lg p-6 bg-input border-border"
+              required
+            />
           </div>
-        </div>
+
           <div className="space-y-2">
             <Label htmlFor="age" className="text-lg font-semibold">{t('input.age')}</Label>
             <Input
@@ -107,12 +88,12 @@ export const InputForm = () => {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="gender" className="text-lg font-semibold">{t('input.gender')}</Label>
+            <Label htmlFor="symptoms" className="text-lg font-semibold">{t('input.symptoms')}</Label>
             <Textarea
-              id="gender"
-              value={gender}
-              onChange={(e) => setgender(e.target.value)}
-              placeholder={t('input.genderPlaceholder')}
+              id="symptoms"
+              value={symptoms}
+              onChange={(e) => setSymptoms(e.target.value)}
+              placeholder={t('input.symptomsPlaceholder')}
               className="min-h-[150px] text-lg p-4 bg-input border-border resize-none"
               required
             />
