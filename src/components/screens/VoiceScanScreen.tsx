@@ -80,9 +80,6 @@ const VoiceScanScreen: React.FC<VoiceScanScreenProps> = ({ onNavigate }) => {
                 <div className="w-2 h-2 bg-foreground rounded-full"></div>
               </div>
             </div>
-            <h3 className="text-lg font-orbitron font-semibold text-foreground mb-2">
-              Dr. Maryam Listening
-            </h3>
             <p className="text-sm text-foreground-secondary font-inter">
               {isRecording ? "Analyzing your voice patterns..." : "Ready to listen to your symptoms"}
             </p>
