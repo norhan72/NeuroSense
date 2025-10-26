@@ -78,11 +78,11 @@ const translations = {
 
     // Disability Test
     'disability.title': 'اختبار قياس الإعاقة الحركية',
-    'disability.subtitle': 'اختبار المشي 6 متر (6-Minute Walk Test)',
+    'disability.subtitle': 'اختبار المشي 2 متر ',
     'disability.instructions': 'تعليمات الاختبار',
     'disability.instruction1': 'قف في نقطة البداية',
     'disability.instruction2': 'اضغط "بدء" عندما تكون جاهزاً',
-    'disability.instruction3': 'امش 6 متر بأسرع ما يمكنك بشكل آمن',
+    'disability.instruction3': 'امش 2 متر بأسرع ما يمكنك بشكل آمن',
     'disability.instruction4': 'اضغط "إنهاء" عند الوصول لنهاية المسافة',
     'disability.distance': 'المسافة (متر)',
     'disability.testInProgress': 'الاختبار جارٍ...',
