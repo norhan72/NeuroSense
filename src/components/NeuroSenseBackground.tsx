@@ -1,12 +1,11 @@
 import React from 'react';
 import medicalNeuralBg from '@/assets/medical-neural-bg.jpg';
-import NeuroSenseBackground from "./NeuroSenseBackground";
 
-const BioScanBackground: React.FC = () => {
+const NeuroSenseBackground: React.FC = () => {
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none">
       {/* Base Gradient */}
-      <div className="bg-bioscan-gradient absolute inset-0" />
+      <div className="bg-NeuroSense-gradient absolute inset-0" />
       
       {/* Medical Neural Network Background */}
       <div 
