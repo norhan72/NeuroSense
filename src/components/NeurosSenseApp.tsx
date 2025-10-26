@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import BioScanBackground from './BioScanBackground';
-import BioScanNavigation from './BioScanNavigation';
+import NeurosSenseBackground from './NeuroSenseBackground';
+import NeurosSenseNavigation from './NeuroSenseNavigation';
 import SplashScreen from './screens/SplashScreen';
 import UserInputScreen from './screens/UserInputScreen';
 import VoiceScanScreen from './screens/VoiceScanScreen';
 import DisabilityTestScreen from './screens/DisabilityTestScreen';
 import ResultsScreen from './screens/ResultsScreen';
 
-const BioScanApp: React.FC = () => {
+const NeurosSenseApp: React.FC = () => {
   const [currentScreen, setCurrentScreen] = useState<string>('splash');
 
   const handleNavigate = (screen: string) => {
@@ -34,7 +34,7 @@ const BioScanApp: React.FC = () => {
   return (
     <div className="relative min-h-screen overflow-hidden font-inter">
       {/* Animated Background */}
-      <BioScanBackground />
+      <NeurosSenseBackground />
       
       {/* Main Content */}
       <div className="relative z-10">
@@ -42,9 +42,9 @@ const BioScanApp: React.FC = () => {
       </div>
       
       {/* Navigation */}
-      <BioScanNavigation currentScreen={currentScreen} onNavigate={handleNavigate} />
+      <NeurosSenseNavigation currentScreen={currentScreen} onNavigate={handleNavigate} />
     </div>
   );
 };
 
-export default BioScanApp;
+export default NeurosSenseApp;

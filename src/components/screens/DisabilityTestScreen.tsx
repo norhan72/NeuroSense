@@ -105,7 +105,7 @@ const DisabilityTestScreen: React.FC<DisabilityTestScreenProps> = ({ onNavigate 
             اختبار قياس الإعاقة الحركية
           </h1>
           <p className="text-muted-foreground">
-            اختبار المشي 6 متر (6-Minute Walk Test)
+            اختبار المشي 2 متر
           </p>
         </div>
 
@@ -120,7 +120,7 @@ const DisabilityTestScreen: React.FC<DisabilityTestScreenProps> = ({ onNavigate 
               <ul className="text-sm text-muted-foreground space-y-1 list-disc list-inside">
                 <li>قف في نقطة البداية</li>
                 <li>اضغط "بدء" عندما تكون جاهزاً</li>
-                <li>امش 6 متر بأسرع ما يمكنك بشكل آمن</li>
+                <li>امش 2 متر بأسرع ما يمكنك بشكل آمن</li>
                 <li>اضغط "إنهاء" عند الوصول لنهاية المسافة</li>
               </ul>
             </div>

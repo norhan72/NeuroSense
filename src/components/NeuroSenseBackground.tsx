@@ -111,4 +111,4 @@ const BioScanBackground: React.FC = () => {
   );
 };
 
-export default BioScanBackground;
+export default NeuroSenseBackground;

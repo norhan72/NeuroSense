@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import GlassCard from '@/components/GlassCard';
-import bioscanLogo from '@/assets/bioscan-logo.jpg';
+import NeurosSenseLogo from '@/assets/NeurosSensecan-logo.jpg';
 import aiDoctorAvatar from '@/assets/ai-doctor-avatar.jpg';
 
 interface SplashScreenProps {
@@ -72,12 +72,6 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onNavigate }) => {
                 className="w-16 h-16 rounded-full object-cover border-2 border-primary-light"
               />
               <div>
-                <p className="text-sm text-foreground font-inter font-medium">
-                  DR. MARYAM
-                </p>
-                <p className="text-xs text-foreground-secondary">
-                  Medical Analysis Expert
-                </p>
                 <div className="flex items-center mt-1">
                   <div className="w-2 h-2 bg-medical-green rounded-full animate-neural-pulse mr-2"></div>
                   <span className="text-xs text-medical-green">Ready to assist</span>

@@ -1,7 +1,7 @@
-import BioScanApp from '../components/BioScanApp';
+import NeurosSenseApp from '../components/NeurosSenseApp';
 
 const Index = () => {
-  return <BioScanApp />;
+  return <NeurosSenseApp />;
 };
 
 export default Index;
