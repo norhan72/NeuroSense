@@ -1,5 +1,6 @@
 import React from 'react';
 import medicalNeuralBg from '@/assets/medical-neural-bg.jpg';
+import NeuroSenseBackground from "./NeuroSenseBackground";
 
 const BioScanBackground: React.FC = () => {
   return (
