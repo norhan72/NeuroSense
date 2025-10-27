@@ -261,29 +261,3 @@ All colors MUST be HSL.
   }
 }
 
-@layer components {
-  /* تحكم في مقاسات جميع عناصر النموذج */
-  input[type="text"],
-  input[type="date"],
-  input[type="email"], 
-  input[type="number"],
-  select,
-  textarea {
-    width: 300px;        /* غير الرقم ده علشان تتحكم في العرض */
-    height: 42px;        /* غير الرقم ده علشان تتحكم في الارتفاع */
-    padding: 8px 12px;
-    background: hsl(var(--input));
-    border: 1px solid hsl(var(--border));
-    border-radius: calc(var(--radius) - 4px);
-    font-family: 'Cairo', sans-serif;
-    font-size: 14px;
-  }
-
-  /* تأثيرات عند التركيز */
-  input:focus,
-  select:focus {
-    outline: none;
-    border-color: hsl(var(--primary));
-    box-shadow: var(--glow-neon);
-  }
-}
