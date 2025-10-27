@@ -283,11 +283,11 @@ const translations = {
 
     // Disability Test
     'disability.title': 'Mobility Disability Test',
-    'disability.subtitle': '6-Meter Walk Test (6-Minute Walk Test)',
+    'disability.subtitle': '2-Meter Walk Test',
     'disability.instructions': 'Test Instructions',
     'disability.instruction1': 'Stand at the starting point',
     'disability.instruction2': 'Press "Start" when ready',
-    'disability.instruction3': 'Walk 6 meters as fast as safely possible',
+    'disability.instruction3': 'Walk 2 meters as fast as safely possible',
     'disability.instruction4': 'Press "Finish" upon reaching the end',
     'disability.distance': 'Distance (meters)',
     'disability.testInProgress': 'Test in progress...',
