@@ -235,7 +235,7 @@ const translations = {
     'input.age': 'Age *',
     'input.agePlaceholder': 'Enter patient age',
     'input.symptoms': 'Gender *',
-    'input.symptomsPlaceholder': 'Enter patient gander',
+    'input.symptomsPlaceholder': 'Enter patient gender',
     'input.medicalHistory': 'Medical History',
     'input.optional': '(if available)',
     'input.medicalHistoryPlaceholder': 'Enter patient medical history (previous diseases, surgeries, ongoing medications, allergies...)',
